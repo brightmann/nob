@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developers.cloudflare.com/workers/wrangler/configuration-schema.json",
+  "assets": { "binding": "ASSETS", "directory": "./.open-next/assets" },
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": ".open-next/worker.js",
+  "name": "nob",
+  "vars": {
+    "AUTH_SECRET": "placeholder-auth-secret-0123456789abcdef",
+    "DATABASE_URL": "postgresql://placeholder:placeholder@placeholder:5432/placeholder",
+    "GOOGLE_CLIENT_ID": "placeholder-google-client-id",
+    "GOOGLE_CLIENT_SECRET": "placeholder-google-client-secret",
+    "NEXT_PUBLIC_SITE_URL": "https://nob.luckypoem.workers.dev"
+  }
+}
