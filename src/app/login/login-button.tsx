@@ -1,5 +1,6 @@
 'use client'
 
+import { SiGithub } from '@icons-pack/react-simple-icons'
 import { Loader2Icon } from 'lucide-react'
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
@@ -32,5 +33,32 @@ const LoginButton = () => {
     </Button>
   )
 }
+
+const GitHubButton = () => {
+  const [loading, setLoading] = useState(false)
+  const searchParams = useSearchParams()
+  const pathname = searchParams.get('redirect') ?? '/'
+
+  return (
+    <Button
+      onClick={async () => {
+        setLoading(true)
+        await signIn('github', {
+          redirect: true,
+          callbackUrl: pathname
+        })
+      }}
+      variant='outline'
+      className='mx-auto mt-4'
+      disabled={loading}
+    >
+      {loading && <Loader2Icon className='mr-2.5 size-4 animate-spin' />}
+      {!loading && <SiGithub className='mr-2 size-4' />}
+      Continue with GitHub
+    </Button>
+  )
+}
+
+export { GitHubButton }
 
 export default LoginButton

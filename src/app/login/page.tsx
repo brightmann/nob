@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation'
 
 import { getCurrentUser } from '@/lib/auth'
 
-import LoginButton from './login-button'
+import LoginButton, { GitHubButton } from './login-button'
 
 export const metadata: Metadata = {
   title: 'Log in',
@@ -23,6 +23,7 @@ const LoginPage = async () => {
       <div className='text-2xl font-semibold'>Log in</div>
       <p className='text-muted-foreground'>to continue to One Blog</p>
       <LoginButton />
+      <GitHubButton />
     </div>
   )
 }

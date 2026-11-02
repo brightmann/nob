@@ -3,6 +3,7 @@ import type { DefaultSession, NextAuthConfig } from 'next-auth'
 
 import { DrizzleAdapter } from '@auth/drizzle-adapter'
 import NextAuth from 'next-auth'
+import GitHubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
 import { cache } from 'react'
 
@@ -32,6 +33,10 @@ const config: NextAuthConfig = {
     GoogleProvider({
       clientId: env.GOOGLE_CLIENT_ID,
       clientSecret: env.GOOGLE_CLIENT_SECRET
+    }),
+    GitHubProvider({
+      clientId: env.GITHUB_ID,
+      clientSecret: env.GITHUB_SECRET
     })
   ],
   callbacks: {

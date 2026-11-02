@@ -15,6 +15,8 @@ export const env = createEnv({
     DATABASE_URL: z.url(),
     GOOGLE_CLIENT_ID: z.string().min(1),
     GOOGLE_CLIENT_SECRET: z.string().min(1),
+    GITHUB_ID: z.string().min(1),
+    GITHUB_SECRET: z.string().min(1),
     AUTH_SECRET: z.string().min(1)
   },
   experimental__runtimeEnv: {
