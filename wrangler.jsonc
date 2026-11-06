@@ -3,12 +3,6 @@
   "assets": { "binding": "ASSETS", "directory": "./.open-next/assets" },
   "compatibility_date": "2026-11-01",
   "compatibility_flags": ["nodejs_compat"],
-  "hyperdrive": [
-    {
-      "binding": "HYPERDRIVE",
-      "id": "3b22334b8390442cbcd8ca959f3ab4f2"
-    }
-  ],
   "main": ".open-next/worker.js",
   "name": "nob",
   "vars": {

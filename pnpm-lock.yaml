@@ -17,6 +17,9 @@ importers:
       '@icons-pack/react-simple-icons':
         specifier: ^13.7.0
         version: 13.7.0(react@19.2.1)
+      '@neondatabase/serverless':
+        specifier: ^1.2.0
+        version: 1.2.0
       '@paralleldrive/cuid2':
         specifier: ^2.2.2
         version: 2.2.2
@@ -88,7 +91,7 @@ importers:
         version: 1.11.18
       drizzle-orm:
         specifier: ^0.44.5
-        version: 0.44.5(@types/pg@8.15.5)(pg@8.13.1)
+        version: 0.44.5(@neondatabase/serverless@1.2.0)(@types/pg@8.15.5)(pg@8.13.1)
       geist:
         specifier: ^1.5.1
         version: 1.5.1(next@15.5.9(react-dom@19.2.1(react@19.2.1))(react@19.2.1))
@@ -1620,6 +1623,10 @@ packages:
 
   '@nelsonlaidev/typescript-config@0.0.3':
     resolution: {integrity: sha512-fG/UyIBa1yAks7U//n09ojWZUDrgER6WC4xck76RC9UMLWQJlk/D/5+Tuo186C+qjYEYVugo+TcMZD0h4Ekweg==}
+
+  '@neondatabase/serverless@1.2.0':
+    resolution: {integrity: sha512-tnaqgixUengZQNd9ZrS3ytQfamJzLKY8QxgqWQTNHHtB+KrFQWk77JTbbpg4RD+J3qE4eO2lVytvGDX5Kj6FdQ==}
+    engines: {node: '>=19.0.0'}
 
   '@next/env@15.5.9':
     resolution: {integrity: sha512-4GlTZ+EJM7WaW2HEZcyU317tIQDjkQIyENDLxYJfSWlfqguN+dHkZgyQTV/7ykvobU7yEH5gKvreNrH4B6QgIg==}
@@ -7121,6 +7128,8 @@ snapshots:
 
   '@nelsonlaidev/typescript-config@0.0.3': {}
 
+  '@neondatabase/serverless@1.2.0': {}
+
   '@next/env@15.5.9': {}
 
   '@next/eslint-plugin-next@15.5.2':
@@ -8701,8 +8710,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.44.5(@types/pg@8.15.5)(pg@8.13.1):
+  drizzle-orm@0.44.5(@neondatabase/serverless@1.2.0)(@types/pg@8.15.5)(pg@8.13.1):
     optionalDependencies:
+      '@neondatabase/serverless': 1.2.0
       '@types/pg': 8.15.5
       pg: 8.13.1
 
