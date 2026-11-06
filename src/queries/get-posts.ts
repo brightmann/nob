@@ -1,11 +1,21 @@
-import { and, desc, eq } from 'drizzle-orm'
+import { and, count, desc, eq } from 'drizzle-orm'
 
 import { db } from '@/db'
 import { posts } from '@/db/schema'
 
-export const getPosts = async () => {
+export const POSTS_PER_PAGE = 5
+
+const publishedPublic = and(eq(posts.published, true), eq(posts.visibility, 'public'))
+
+export const getPostsCount = async () => {
+  const [row] = await db.select({ total: count() }).from(posts).where(publishedPublic)
+
+  return { total: row?.total ?? 0 }
+}
+
+export const getPosts = async ({ page, pageSize }: { page: number; pageSize: number }) => {
   const result = await db.query.posts.findMany({
-    where: and(eq(posts.published, true), eq(posts.visibility, 'public')),
+    where: publishedPublic,
     columns: {
       id: true,
       title: true,
@@ -27,7 +37,9 @@ export const getPosts = async () => {
         }
       }
     },
-    orderBy: desc(posts.createdAt)
+    orderBy: desc(posts.createdAt),
+    limit: pageSize,
+    offset: (page - 1) * pageSize
   })
 
   return {
