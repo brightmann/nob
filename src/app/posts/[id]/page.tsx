@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import readingTime from 'reading-time'
 
+import Controls from '@/components/controls'
 import Editor from '@/components/editor'
 import UserAvatar from '@/components/user-avatar'
 import { getCurrentUser } from '@/lib/auth'
@@ -75,10 +76,13 @@ const PostPage = async (props: PageProps<'/posts/[id]'>) => {
   return (
     <>
       <div className='space-y-4'>
-        <div className='flex gap-2 text-muted-foreground'>
-          <time dateTime={dateTime}>{formatPostDate(createdAt, { relative: true })}</time>
-          <span>·</span>
-          <span>{readingTime(content ?? '').text}</span>
+        <div className='flex items-start justify-between gap-2'>
+          <div className='flex gap-2 text-muted-foreground'>
+            <time dateTime={dateTime}>{formatPostDate(createdAt, { relative: true })}</time>
+            <span>·</span>
+            <span>{readingTime(content ?? '').text}</span>
+          </div>
+          <Controls user={user} id={id} authorId={author.id} postTitle={title} />
         </div>
         <h1 className='text-2xl font-semibold tracking-tight md:text-3xl lg:text-4xl'>{title}</h1>
         <p className='text-lg text-muted-foreground md:text-xl'>{description}</p>

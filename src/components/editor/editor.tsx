@@ -6,6 +6,7 @@ import { EditorContent, type EditorEvents, type EditorOptions, useEditor } from 
 import { Loader2Icon } from 'lucide-react'
 
 import { cn } from '@/utils/cn'
+import { repairYoutubeEmbeds } from '@/utils/repair-youtube-embeds'
 
 import { extensions } from './extensions'
 import Toolbar from './toolbar'
@@ -31,7 +32,10 @@ const Editor = (props: EditorProps) => {
         onChange(e)
       }
     },
-    ...options
+    ...options,
+    // Pasted YouTube embeds can arrive with a mangled <iframe src="<a ...>">
+    // that no browser can load; repair them so the video renders.
+    content: typeof options?.content === 'string' ? repairYoutubeEmbeds(options.content) : options?.content
   })
 
   if (!editor) {

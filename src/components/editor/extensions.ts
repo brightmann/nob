@@ -6,6 +6,7 @@ import { Link } from '@tiptap/extension-link'
 import { Placeholder } from '@tiptap/extension-placeholder'
 import { TaskItem } from '@tiptap/extension-task-item'
 import { TaskList } from '@tiptap/extension-task-list'
+import { Youtube } from '@tiptap/extension-youtube'
 import { StarterKit } from '@tiptap/starter-kit'
 import { all, createLowlight } from 'lowlight'
 
@@ -28,6 +29,10 @@ export const extensions: AnyExtension[] = [
   }).extend({
     inclusive: false,
     priority: 100
+  }),
+  Youtube.configure({
+    width: 640,
+    height: 360
   }),
   CodeBlockLowlight.configure({
     lowlight,
